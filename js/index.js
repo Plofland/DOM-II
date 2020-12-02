@@ -27,28 +27,29 @@ clickButtonArray.forEach(elem => {
 
 // -------------------------------------------------------------------
 // On button double click, send an alert message
+
 clickButtonArray.forEach((e)=> e.addEventListener('dblclick', ()=> alert("You only need to click the button once.")));
 
 
 // -------------------------------------------------------------------
 // Welcome message on a successful page load
+
 document.addEventListener('keydown', (elem) => {
     if (elem.key === 'Escape'){
         funBus.style.backgroundColor = "black"
-        // setInterval(function(funBus.style.backgroundColor.toggle("black")), 1000)
+        // setInterval(function(funBus.style.backgroundColor.toggle("black")), 2000)
+        // I wanted to get the logo background to turn black and then reset back after 2 seconds but I could not get this line of code to work
     }
 });
 
 
-
-
 // ----------------------------------------------------------------
 // Change the size of the h1 any time the scroll wheel is used
+
 document.addEventListener('wheel', () => funBus.style.fontSize = "5rem")
 
 
 // -------------------------------------------------------------
-
 // When an image is double clicked, it applies a gray filter
 
 imgDBClickArray.forEach((item) => 
@@ -67,6 +68,7 @@ linksArray.forEach((elem) =>
 
 // ----------------------------------------------------------------
 // Change the text color back after mouse hovers off of links
+
 linksArray.forEach((elem) => 
     elem.addEventListener('mouseout', () => 
         elem.style.color = "black")
@@ -74,15 +76,27 @@ linksArray.forEach((elem) =>
 
 // ---------------------------------------------------------------
 // Change background color to slate gray when mouse is clicked
+
 home.addEventListener('mousedown', () =>
     home.style.backgroundColor = "slateGray"
 );
 
 // ----------------------------------------------------------------
 // Change background color back to white when mouse click is released
+
 home.addEventListener('mouseup', () =>
     home.style.backgroundColor = "white"
 );
 
 // ------------------------------------------------------------------
-// 
+// Change when the right mouse button is clicked
+
+document.addEventListener('contextmenu', () =>
+    home.style.backgroundColor = 'hotPink'
+);
+
+// ---------------------------------------------------------------------
+// stopPropagation
+linksArray.forEach((elem) => {
+    elem.addEventListener('click', (event) => event.stopPropagation())
+})
